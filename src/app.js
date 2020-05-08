@@ -4,8 +4,8 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const app = express()
-
-//Define paths for Express config
+const port = process.env.PORT || 3000
+    //Define paths for Express config
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -13,6 +13,8 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
+
+c
 
 //Setup static directory
 app.use(express.static(publicDirectory))
@@ -92,10 +94,6 @@ app.get('/products', (req, res) => {
     res.send({ products: [] })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up and running on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up and running on port ' + port)
 })
-
-
-
-document.querySelector
